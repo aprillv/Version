@@ -48,7 +48,7 @@ class VersionListViewController: UITableViewController, UISearchBarDelegate {
         
         let a = ["version" : "0"]
         Alamofire.request(.POST,
-            "http://ssl.buildersaccess.com/bacontract_VersionList.json",
+            "http://contractssl.buildersaccess.com/bacontract_VersionList.json",
             parameters: a).responseJSON{ (response) -> Void in
                 self.refreshControl?.endRefreshing()
                 if response.result.isSuccess {

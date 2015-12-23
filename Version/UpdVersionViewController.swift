@@ -18,7 +18,7 @@ class UpdVersionViewController: UIViewController {
         let a = ["xname":"\(info!["xname"]!)","version":"\(Vvalue.text!)"]
         //        print(a)
         Alamofire.request(.POST,
-            "http://ssl.buildersaccess.com/bacontract_UpdVersion.json",
+            "http://contractssl.buildersaccess.com/bacontract_UpdVersion.json",
             parameters: a).responseJSON{ (response) -> Void in
                 //                self.refreshControl?.endRefreshing()
                 if response.result.isSuccess {
@@ -37,7 +37,12 @@ class UpdVersionViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Update"
         Vname.text = info!["xname"]! + " == " + info!["xvalue"]!
-        Vvalue.text = info!["xvalue"]
+        let today = NSDate()
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        
+        Vvalue.text = formatter.stringFromDate(today)
         // Do any additional setup after loading the view.
     }
     
